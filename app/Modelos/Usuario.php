@@ -86,6 +86,59 @@ class Usuario {
         }
     }
 
+    public function leerUsuarios()
+    {
+        try {
+            $conexion = DB::obtenerInstancia()->obtenerConexion();
+
+            $query = "SELECT * FROM usuarios";
+            $stmt = $conexion->prepare($query);
+            $stmt->execute();
+
+            $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            return $usuarios;
+        } catch (PDOException $e) {
+            return [];
+        }
+    }
+
+    public function generarPDFUsuarios()
+    {
+        
+        
+
+        $pdf = new FPDF();
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 12);
+        $pdf->Cell(0, 10, 'Listado de Usuarios', 0, 1, 'C');
+        
+        $usuarios = $this->leerUsuarios();
+
+        $pdf->Cell(15, 10, 'id', 1);
+        $pdf->Cell(60, 10, 'mail', 1);
+        $pdf->Cell(30, 10, 'usuario', 1);
+        $pdf->Cell(15, 10, 'clave', 1);
+        $pdf->Cell(20, 10, 'perfil', 1);
+        $pdf->Cell(60, 10, 'foto', 1);
+        $pdf->Cell(30, 10, 'fecha de alta', 1);
+        $pdf->Ln();
+
+        foreach ($usuarios as $usuario) {
+            $pdf->Cell(15, 10, $usuario['id'], 1);
+            $pdf->Cell(60, 10, $usuario['mail'], 1);
+            $pdf->Cell(30, 10, $usuario['usuario'], 1);
+            $pdf->Cell(15, 10, $usuario['contrasena'], 1);
+            $pdf->Cell(20, 10, $usuario['perfil'], 1);
+
+        }
+           
+
+          
+
+        
+    }
+
 
 
 

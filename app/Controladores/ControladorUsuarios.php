@@ -52,52 +52,10 @@ class ControladorUsuario
         $stmt = $usuario->leerUsuarios(); 
         $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 
-        $response->getBody()->write(json_encode($usuarios)); //parseo los usuarios a JSON
+        $response->getBody()->write(json_encode($usuarios)); 
         return $response->withHeader('Content-Type', 'application/json');
     }
 
-    public function eliminarUsuario($request, $response, $args) {
-
-        $body = $request->getBody()->getContents();
-        $data = json_decode($body, true);
-        $idUsuario = $data['id_entidad_a_accionar'];
-        
-    
-        if (empty($idUsuario)) {
-            return $response->withHeader('Content-Type', 'application/json')->withStatus(400)
-                ->write(json_encode(["message" => "ID de usuario no válido"]));
-        }
-    
-        $usuario = new Usuario(); 
-        $exito = $usuario->borrarUsuario($idUsuario); 
-    
-        $response->getBody()->write(json_encode(["message" => "Usuario eliminado exitosamente"]));
-        return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
-
-    }
-
-    public function modificarUsuario($request, $response, $args) 
-    {
-        $body = $request->getBody()->getContents();
-        parse_str($body, $data);
-
-        $idUsuario = $data['id_entidad_a_accionar']; 
-        $rol = $data['rol'];
-        $clave = $data['clave'];
-        $mail = $data['mail'];
-
-        $usuario = new Usuario();
-
-        $mensaje = $usuario->cambiarUsuario($idUsuario, $mail, $rol, $clave);
-
-        if ($mensaje === "Usuario modificado exitosamente.") {
-            $response->getBody()->write(json_encode(["message" => $mensaje]));
-            return $response->withHeader('Content-Type', 'application/json');
-        } else {
-            $response->getBody()->write(json_encode(["message" => $mensaje]));
-            return $response->withHeader('Content-Type', 'application/json')->withStatus(500);
-        }
-    }
 
     public function iniciarSesion($request, $response, $args) 
     {
@@ -123,6 +81,15 @@ class ControladorUsuario
                 ->withStatus(401);
         }
     }
+
+    public function descargarPDFUsuarios(Request $request, Response $response, $args)
+    {
+        $usuarioModel = new Usuario();
+        $usuarioModel->generarPDFUsuarios();
+        $response->getBody()->write(json_encode($usuarioModel));
+        return $response->withHeader('Content-Type', 'application/json');
+    }
+
 
 
 

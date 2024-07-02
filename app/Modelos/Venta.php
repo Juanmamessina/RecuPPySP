@@ -429,9 +429,127 @@ class Venta
         return $csv;
     }
 
+    ///////////////////////////////////////////////RECU
+
+    public function generarArchivoPDF() {
+
+        $listaVentas = $this->leerVentas();
+
+        $pdf = new FPDF('L', 'mm', 'Letter');
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 10);
+
+        $pdf->Cell(10, 5, 'ID', 1);
+        $pdf->Cell(65, 5, 'Email Usuario', 1);
+        $pdf->Cell(30, 5, 'Marca', 1);
+        $pdf->Cell(30, 5, 'Tipo', 1);
+        $pdf->Cell(30, 5, 'Modelo', 1);
+        $pdf->Cell(20, 5, 'Cantidad', 1);
+        $pdf->Cell(17, 5, 'Monto', 1);
+        $pdf->Cell(30, 5, 'Fecha', 1);
+        $pdf->Cell(30, 5, 'Numero Pedido', 1);
+        $pdf->Ln();
+
+        $pdf->SetFont('Arial', '', 8);
+        foreach ($listaVentas as $venta) {
+            $pdf->Cell(10, 5, $venta['id'], 1);
+            $pdf->Cell(65, 5, $venta['email_usuario'], 1);
+            $pdf->Cell(30, 5, $venta['marca'], 1);
+            $pdf->Cell(30, 5, $venta['tipo'], 1);
+            $pdf->Cell(30, 5, $venta['modelo'], 1);
+            $pdf->Cell(20, 5, $venta['cantidad'], 1);
+            $pdf->Cell(17, 5, $venta['monto'], 1);
+            $pdf->Cell(30, 5, $venta['fecha'], 1);
+            $pdf->Cell(30, 5, $venta['numero_pedido'], 1);
+            $pdf->Ln();
+        }
+
+        ob_start();
+        $pdf->Output();
+        $pdfContent = ob_get_clean();
+
+        return $pdfContent;
+    }
+
+
+    public static function consultarProductoMenosVendido()
+    {
+        $conexion = DB::obtenerInstancia()->obtenerConexion();
+        
+        $query = "SELECT marca, tipo, modelo, SUM(cantidad) AS total_vendido 
+                FROM ventas 
+                GROUP BY marca, tipo, modelo 
+                ORDER BY total_vendido ASC 
+                LIMIT 1";
+
+        $stmt = $conexion->prepare($query);
+        $stmt->execute();
+        $productoMenosVendido = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($productoMenosVendido) {
+            $productoMenosVendido['total_vendido'] .= " unidades";
+            $response = [
+                "message" => "Producto menos vendido",
+                "modelo" => [
+                    "marca" => $productoMenosVendido['marca'],
+                    "tipo" => $productoMenosVendido['tipo'],
+                    "modelo" => $productoMenosVendido['modelo'],
+                    "total_vendido" => $productoMenosVendido['total_vendido'] 
+                ]
+            ];
+            return json_encode($response);
+        } else {
+            return json_encode(["message" => "No hay productos vendidos registrados."]);
+        }
+    }
+
+    public static function obtenerProductosPorStock($orden)
+    {
+        $conexion = DB::obtenerInstancia()->obtenerConexion();
+
+        if ($orden === 'asc') {
+            $query = "SELECT * FROM productos ORDER BY stock ASC";
+        } elseif ($orden === 'desc') {
+            $query = "SELECT * FROM productos ORDER BY stock DESC";
+        } else {
+            $query = "SELECT * FROM productos ORDER BY stock ASC";
+        }
+
+        $stmt = $conexion->prepare($query);
+        $stmt->execute();
+        $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $productos;
+    }
+
+    public static function obtenerProductosPorPrecio($orden)
+    {
+        $conexion = DB::obtenerInstancia()->obtenerConexion();
+
+        if ($orden === 'asc') {
+            $query = "SELECT * FROM productos ORDER BY precio ASC";
+        } elseif ($orden === 'desc') {
+            $query = "SELECT * FROM productos ORDER BY precio DESC";
+        } else {
+            $query = "SELECT * FROM productos ORDER BY precio ASC";
+        }
+
+        $stmt = $conexion->prepare($query);
+        $stmt->execute();
+        $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $productos;
+    }
 
 
 
 
 }
+
+
+
+
+
+
+
 

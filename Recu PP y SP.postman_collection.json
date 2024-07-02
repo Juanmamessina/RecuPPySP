@@ -1,0 +1,688 @@
+{
+	"info": {
+		"_postman_id": "08b830a6-10f6-4cca-b0c0-f5f51179400c",
+		"name": "Recu PP y SP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34776972"
+	},
+	"item": [
+		{
+			"name": "tienda alta",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5Mjc3NjgsImV4cCI6MTcxOTk4Nzc2OCwiYXVkIjoiODg5YjY2MTA1NTBiYWFiZmZjZGY5OTc0NzFjOWRhNjJlZDE2ZGVlYSIsImRhdGEiOnsidXN1YXJpbyI6Im5pY29tZXNzaW5hIiwicGVyZmlsIjoiYWRtaW4ifSwiYXBwIjoiVGVzdCBKV1QifQ.sTnIrZvnMbA-E130m_td04aZyzaUbWSslTgD9oDpY0E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "marca",
+							"value": "LENOVO",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "2000",
+							"type": "text"
+						},
+						{
+							"key": "stock",
+							"value": "900",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "cartucho",
+							"type": "text"
+						},
+						{
+							"key": "color",
+							"value": "blanco",
+							"type": "text"
+						},
+						{
+							"key": "modelo",
+							"value": "LEN-80",
+							"type": "text"
+						},
+						{
+							"key": "imagen",
+							"type": "file",
+							"src": "postman-cloud:///1ef33d1e-44ae-4630-baf9-19ecb87480da"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:888/tienda/alta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "888",
+					"path": [
+						"tienda",
+						"alta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tienda consultar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5Mjc3NjgsImV4cCI6MTcxOTk4Nzc2OCwiYXVkIjoiODg5YjY2MTA1NTBiYWFiZmZjZGY5OTc0NzFjOWRhNjJlZDE2ZGVlYSIsImRhdGEiOnsidXN1YXJpbyI6Im5pY29tZXNzaW5hIiwicGVyZmlsIjoiYWRtaW4ifSwiYXBwIjoiVGVzdCBKV1QifQ.sTnIrZvnMbA-E130m_td04aZyzaUbWSslTgD9oDpY0E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "marca",
+							"value": "EPSON",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "impresora",
+							"type": "text"
+						},
+						{
+							"key": "color",
+							"value": "blanco",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:888/tienda/consultar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "888",
+					"path": [
+						"tienda",
+						"consultar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ventas alta",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5Mjc3NjgsImV4cCI6MTcxOTk4Nzc2OCwiYXVkIjoiODg5YjY2MTA1NTBiYWFiZmZjZGY5OTc0NzFjOWRhNjJlZDE2ZGVlYSIsImRhdGEiOnsidXN1YXJpbyI6Im5pY29tZXNzaW5hIiwicGVyZmlsIjoiYWRtaW4ifSwiYXBwIjoiVGVzdCBKV1QifQ.sTnIrZvnMbA-E130m_td04aZyzaUbWSslTgD9oDpY0E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email_usuario",
+							"value": "juanmamessina11@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "marca",
+							"value": "Epson",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "impresora",
+							"type": "text"
+						},
+						{
+							"key": "modelo",
+							"value": "iPrint100",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "imagen",
+							"type": "file",
+							"src": "postman-cloud:///1ef33e38-0e79-4c70-9e64-e2626670f87e"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:888/tienda/ventas/alta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "888",
+					"path": [
+						"tienda",
+						"ventas",
+						"alta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Ventas por usuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5Mjc3NjgsImV4cCI6MTcxOTk4Nzc2OCwiYXVkIjoiODg5YjY2MTA1NTBiYWFiZmZjZGY5OTc0NzFjOWRhNjJlZDE2ZGVlYSIsImRhdGEiOnsidXN1YXJpbyI6Im5pY29tZXNzaW5hIiwicGVyZmlsIjoiYWRtaW4ifSwiYXBwIjoiVGVzdCBKV1QifQ.sTnIrZvnMbA-E130m_td04aZyzaUbWSslTgD9oDpY0E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:888/tienda/consultar/ventas/porUsuario?email_usuario=juanmamessina11@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "888",
+					"path": [
+						"tienda",
+						"consultar",
+						"ventas",
+						"porUsuario"
+					],
+					"query": [
+						{
+							"key": "email_usuario",
+							"value": "juanmamessina11@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ventas modificar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5MjgyNTYsImV4cCI6MTcxOTk4ODI1NiwiYXVkIjoiODg5YjY2MTA1NTBiYWFiZmZjZGY5OTc0NzFjOWRhNjJlZDE2ZGVlYSIsImRhdGEiOnsidXN1YXJpbyI6Im5pY29tZXNzaW5hIiwicGVyZmlsIjoiYWRtaW4ifSwiYXBwIjoiVGVzdCBKV1QifQ.tGbKj-swuTGdGeT329sBTQWtZYZnUisqQNo-bwygcO8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numero_pedido\": \"1\",\r\n    \"email\": \"pepito@gmail.com\",\r\n    \"marca\": \"SAMSUNG\",\r\n    \"tipo\": \"cartucho\",\r\n    \"modelo\": \"SAM-50\",\r\n    \"cantidad\": 20\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:888/tienda/ventas/modificar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "888",
+					"path": [
+						"tienda",
+						"ventas",
+						"modificar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "registro usuarios",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "mail",
+							"value": "nicomessina@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "usuario",
+							"value": "nicomessina",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "perfil",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "postman-cloud:///1ef33e38-0e79-4c70-9e64-e2626670f87e"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:888/registro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "888",
+					"path": [
+						"registro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generar login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "usuario",
+							"value": "nicomessina",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "perfil",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:888/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "888",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar productos vendidos por fecha",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5MjgyNTYsImV4cCI6MTcxOTk4ODI1NiwiYXVkIjoiODg5YjY2MTA1NTBiYWFiZmZjZGY5OTc0NzFjOWRhNjJlZDE2ZGVlYSIsImRhdGEiOnsidXN1YXJpbyI6Im5pY29tZXNzaW5hIiwicGVyZmlsIjoiYWRtaW4ifSwiYXBwIjoiVGVzdCBKV1QifQ.tGbKj-swuTGdGeT329sBTQWtZYZnUisqQNo-bwygcO8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:888/tienda/consultar/productos/vendidos?fecha=2024-07-02",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "888",
+					"path": [
+						"tienda",
+						"consultar",
+						"productos",
+						"vendidos"
+					],
+					"query": [
+						{
+							"key": "fecha",
+							"value": "2024-07-02"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar ventas por producto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5MjgyNTYsImV4cCI6MTcxOTk4ODI1NiwiYXVkIjoiODg5YjY2MTA1NTBiYWFiZmZjZGY5OTc0NzFjOWRhNjJlZDE2ZGVlYSIsImRhdGEiOnsidXN1YXJpbyI6Im5pY29tZXNzaW5hIiwicGVyZmlsIjoiYWRtaW4ifSwiYXBwIjoiVGVzdCBKV1QifQ.tGbKj-swuTGdGeT329sBTQWtZYZnUisqQNo-bwygcO8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:888/tienda/consultar/ventas/porProducto?tipoProducto=cartucho",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "888",
+					"path": [
+						"tienda",
+						"consultar",
+						"ventas",
+						"porProducto"
+					],
+					"query": [
+						{
+							"key": "tipoProducto",
+							"value": "cartucho"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar productos entre valores",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5MjgyNTYsImV4cCI6MTcxOTk4ODI1NiwiYXVkIjoiODg5YjY2MTA1NTBiYWFiZmZjZGY5OTc0NzFjOWRhNjJlZDE2ZGVlYSIsImRhdGEiOnsidXN1YXJpbyI6Im5pY29tZXNzaW5hIiwicGVyZmlsIjoiYWRtaW4ifSwiYXBwIjoiVGVzdCBKV1QifQ.tGbKj-swuTGdGeT329sBTQWtZYZnUisqQNo-bwygcO8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:888/tienda/consultar/productos/entreValores?precioMin=100&precioMax=2000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "888",
+					"path": [
+						"tienda",
+						"consultar",
+						"productos",
+						"entreValores"
+					],
+					"query": [
+						{
+							"key": "precioMin",
+							"value": "100"
+						},
+						{
+							"key": "precioMax",
+							"value": "2000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar ingresos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5MjgyNTYsImV4cCI6MTcxOTk4ODI1NiwiYXVkIjoiODg5YjY2MTA1NTBiYWFiZmZjZGY5OTc0NzFjOWRhNjJlZDE2ZGVlYSIsImRhdGEiOnsidXN1YXJpbyI6Im5pY29tZXNzaW5hIiwicGVyZmlsIjoiYWRtaW4ifSwiYXBwIjoiVGVzdCBKV1QifQ.tGbKj-swuTGdGeT329sBTQWtZYZnUisqQNo-bwygcO8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:888/tienda/consultar/ingresos?fecha=2024-07-02",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "888",
+					"path": [
+						"tienda",
+						"consultar",
+						"ingresos"
+					],
+					"query": [
+						{
+							"key": "fecha",
+							"value": "2024-07-02"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar producto mas vendido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5MjgyNTYsImV4cCI6MTcxOTk4ODI1NiwiYXVkIjoiODg5YjY2MTA1NTBiYWFiZmZjZGY5OTc0NzFjOWRhNjJlZDE2ZGVlYSIsImRhdGEiOnsidXN1YXJpbyI6Im5pY29tZXNzaW5hIiwicGVyZmlsIjoiYWRtaW4ifSwiYXBwIjoiVGVzdCBKV1QifQ.tGbKj-swuTGdGeT329sBTQWtZYZnUisqQNo-bwygcO8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:888/tienda/consultar/productos/masVendido",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "888",
+					"path": [
+						"tienda",
+						"consultar",
+						"productos",
+						"masVendido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ventas descargar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5MjgyNTYsImV4cCI6MTcxOTk4ODI1NiwiYXVkIjoiODg5YjY2MTA1NTBiYWFiZmZjZGY5OTc0NzFjOWRhNjJlZDE2ZGVlYSIsImRhdGEiOnsidXN1YXJpbyI6Im5pY29tZXNzaW5hIiwicGVyZmlsIjoiYWRtaW4ifSwiYXBwIjoiVGVzdCBKV1QifQ.tGbKj-swuTGdGeT329sBTQWtZYZnUisqQNo-bwygcO8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:888/tienda/ventas/descargar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "888",
+					"path": [
+						"tienda",
+						"ventas",
+						"descargar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ventas/pdf",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5NTkyOTYsImV4cCI6MTcyMDAxOTI5NiwiYXVkIjoiODg5YjY2MTA1NTBiYWFiZmZjZGY5OTc0NzFjOWRhNjJlZDE2ZGVlYSIsImRhdGEiOnsidXN1YXJpbyI6Im5pY29tZXNzaW5hIiwicGVyZmlsIjoiYWRtaW4ifSwiYXBwIjoiVGVzdCBKV1QifQ.C7gkIb0dluP02fXKNATV1vJbEdmR-b48NFLuxPhi5dQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:888/tienda/ventas/pdf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "888",
+					"path": [
+						"tienda",
+						"ventas",
+						"pdf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "productos/menosVendido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5NTkyOTYsImV4cCI6MTcyMDAxOTI5NiwiYXVkIjoiODg5YjY2MTA1NTBiYWFiZmZjZGY5OTc0NzFjOWRhNjJlZDE2ZGVlYSIsImRhdGEiOnsidXN1YXJpbyI6Im5pY29tZXNzaW5hIiwicGVyZmlsIjoiYWRtaW4ifSwiYXBwIjoiVGVzdCBKV1QifQ.C7gkIb0dluP02fXKNATV1vJbEdmR-b48NFLuxPhi5dQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:888/recuperatorio/consultas/productos/menosVendido",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "888",
+					"path": [
+						"recuperatorio",
+						"consultas",
+						"productos",
+						"menosVendido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/productos/porStock",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTk5NTkyOTYsImV4cCI6MTcyMDAxOTI5NiwiYXVkIjoiODg5YjY2MTA1NTBiYWFiZmZjZGY5OTc0NzFjOWRhNjJlZDE2ZGVlYSIsImRhdGEiOnsidXN1YXJpbyI6Im5pY29tZXNzaW5hIiwicGVyZmlsIjoiYWRtaW4ifSwiYXBwIjoiVGVzdCBKV1QifQ.C7gkIb0dluP02fXKNATV1vJbEdmR-b48NFLuxPhi5dQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:888/recuperatorio/consultas/productos/porStock?orden=asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "888",
+					"path": [
+						"recuperatorio",
+						"consultas",
+						"productos",
+						"porStock"
+					],
+					"query": [
+						{
+							"key": "orden",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

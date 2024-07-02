@@ -55,6 +55,14 @@ $app->group('/tienda', function(RouteCollectorProxy $group){
         $controlador = new ControladorVenta();
         return $controlador->exportarArchivosCSV($request, $response, $args);
     });
+    $group->get('/ventas/pdf', function(Request $request, Response $response, $args){
+        $controlador = new ControladorVenta();
+        return $controlador->exportarArchivoPDF($request, $response, $args);
+    });
+    $group->get('/productos/menosVendido', function(Request $request, Response $response, $args) {
+        $controlador = new ControladorVenta();
+        return $controlador->consultarProductoMenosVendido($request, $response, $args);
+    });
 })->add(new MWConfirmarPerfil(['admin']));
 
 
@@ -101,10 +109,40 @@ $app->group('/tienda', function(RouteCollectorProxy $group) {
     $group->get('/consultar/ingresos', function(Request $request, Response $response, $args) {
         $controlador = new ControladorVenta();
         return $controlador->consultarIngresos($request, $response, $args);
+        
     });
 
 
 })->add(new MWConfirmarPerfil(['admin', 'empleado']));
+
+
+
+
+$app->group('/recuperatorio/consultas', function(RouteCollectorProxy $group) {
+    $group->get('/productos/menosVendido', function(Request $request, Response $response, $args) {
+        $controlador = new ControladorVenta();
+        return $controlador->consultarProductoMenosVendido($request, $response, $args);
+    });
+    $group->get('/productos/porStock', function(Request $request, Response $response, $args) {
+        $controlador = new ControladorVenta();
+        return $controlador->productosPorStock($request, $response, $args);
+    });
+    $group->get('/productos/porPrecio', function(Request $request, Response $response, $args) {
+        $controlador = new ControladorVenta();
+        return $controlador->productosPorPrecio($request, $response, $args);
+    });
+
+})->add(new MWConfirmarPerfil(['admin', 'empleado']));
+
+
+
+
+
+$app->get('/usuarios/pdf', function (Request $request, Response $response, array $args)  
+{
+    $controlador = new ControladorUsuario();
+    return $controlador->descargarPDFUsuarios($request, $response, $args);
+})->add(new MWConfirmarPerfil(['admin']));
 
 
 

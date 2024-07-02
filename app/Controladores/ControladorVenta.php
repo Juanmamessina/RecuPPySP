@@ -180,8 +180,46 @@ class ControladorVenta
         }
     }
 
+    ////////////////////////////////////////////////////////////// RECU
 
+    public function exportarArchivoPDF($request, $response, $args) {
+        $ventasModelo = new Venta();
+        $pdfContent = $ventasModelo->generarArchivoPDF();
+
+        $response = $response->withHeader('Content-Type', 'application/pdf');
+        $response = $response->withHeader('Content-Disposition', 'attachment; filename="ventas.pdf"');
+        $response->getBody()->write($pdfContent);
+
+        return $response;
+    }
+
+
+    public function consultarProductoMenosVendido($request, $response, $args)
+    {
+        $consulta = Venta::consultarProductoMenosVendido();
+        $response->getBody()->write($consulta);
+        return $response->withHeader('Content-Type', 'application/json');
+    }
+
+    public function productosPorStock(Request $request, Response $response, array $args)
+    {
+        $orden = $request->getQueryParams()['orden'];
+        $productos = Venta::obtenerProductosPorStock($orden);
+        $response->getBody()->write(json_encode($productos));
+        return $response->withHeader('Content-Type', 'application/json');
+    }
+
+    public function productosPorPrecio(Request $request, Response $response, array $args)
+    {
+        $orden = $request->getQueryParams()['orden'];
+        $productos = Venta::obtenerProductosPorPrecio($orden);
+        $response->getBody()->write(json_encode($productos));
+        return $response->withHeader('Content-Type', 'application/json');
+    }
 }
+
+
+
 
 
 
